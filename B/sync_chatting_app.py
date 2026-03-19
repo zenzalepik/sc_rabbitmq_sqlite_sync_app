@@ -3,6 +3,7 @@ import sqlite3
 import threading
 import json
 import time
+import os
 from datetime import datetime
 
 USERNAME = input("Masukkan username: ")
@@ -30,7 +31,9 @@ conn.commit()
 
 # --- Consumer ---
 def consume():
-    connection = pika.BlockingConnection(pika.ConnectionParameters('localhost', heartbeat=600))
+    # Get RabbitMQ host from environment variable (for Docker) or default to localhost
+    rabbitmq_host = os.environ.get("RABBITMQ_HOST", "localhost")
+    connection = pika.BlockingConnection(pika.ConnectionParameters(rabbitmq_host, heartbeat=600))
     channel = connection.channel()
     
     # Gunakan Fanout Exchange untuk broadcast
@@ -78,7 +81,9 @@ def consume():
 
 # --- Producer ---
 def produce():
-    connection = pika.BlockingConnection(pika.ConnectionParameters('localhost', heartbeat=600))
+    # Get RabbitMQ host from environment variable (for Docker) or default to localhost
+    rabbitmq_host = os.environ.get("RABBITMQ_HOST", "localhost")
+    connection = pika.BlockingConnection(pika.ConnectionParameters(rabbitmq_host, heartbeat=600))
     channel = connection.channel()
     
     # Gunakan Fanout Exchange untuk broadcast
