@@ -3,6 +3,9 @@ echo ========================================
 echo  Starting RabbitMQ + Chat Apps (Docker)
 echo ========================================
 echo.
+echo NOTE: This is for SINGLE-PC testing (App A + App B)
+echo For multi-PC federation, use output/<node_name>/start.bat
+echo.
 
 REM Check if Docker is running
 docker info >nul 2>&1
@@ -29,10 +32,10 @@ echo ========================================
 echo  Containers Started!
 echo ========================================
 echo.
-echo Container IPs:
-echo   - RabbitMQ: 172.28.0.2
-echo   - App A:    172.28.0.3
-echo   - App B:    172.28.0.4
+echo Services:
+echo   - RabbitMQ Broker
+echo   - Chat App A
+echo   - Chat App B
 echo.
 echo RabbitMQ Management UI: http://localhost:15672
 echo   Username: guest
@@ -41,9 +44,10 @@ echo.
 echo To view logs:
 echo   docker-compose logs -f app_a
 echo   docker-compose logs -f app_b
+echo   docker-compose logs -f rabbitmq
 echo.
 echo To stop:
-echo   docker-compose down
+echo   stop.bat
 echo ========================================
 
 REM Show running containers

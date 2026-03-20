@@ -3,6 +3,12 @@
 
 ---
 
+## 🚀 Quick Start
+
+**Ingin setup cepat?** Lihat: **[QUICK_START.md](QUICK_START.md)**
+
+---
+
 ## 📋 Ringkasan Eksekutif
 
 Guide ini menjelaskan cara setup **RabbitMQ Federation** untuk aplikasi chat multi-PC dengan fitur:

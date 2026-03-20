@@ -68,36 +68,36 @@ REM  3. Verify with: rabbitmqctl list_parameters
 REM
 REM ============================================================================
 
-echo {Colors.OKCYAN}============================================================================{Colors.ENDC}
+echo ============================================================================
 echo  RabbitMQ Federation Setup - {node['name']} ({node['ip']})
-echo {Colors.OKCYAN}============================================================================{Colors.ENDC}
+echo ============================================================================
 echo.
 
 REM Check if RabbitMQ is installed
 where rabbitmqctl >nul 2>&1
 if %errorlevel% neq 0 (
-    echo {Colors.FAIL}[ERROR] rabbitmqctl not found!{Colors.ENDC}
+    echo [ERROR] rabbitmqctl not found!
     echo Please install RabbitMQ first: https://rabbitmq.com/install-windows.html
     pause
     exit /b 1
 )
 
-echo {Colors.OKGREEN}[OK]{Colors.ENDC} RabbitMQ found
+echo [OK] RabbitMQ found
 echo.
 
 REM Step 1: Enable federation plugin
-echo {Colors.OKBLUE}[STEP 1/3]{Colors.ENDC} Enabling federation plugin...
+echo [STEP 1/3] Enabling federation plugin...
 rabbitmq-plugins enable rabbitmq_federation
 if %errorlevel% neq 0 (
-    echo {Colors.FAIL}[ERROR] Failed to enable federation plugin{Colors.ENDC}
+    echo [ERROR] Failed to enable federation plugin
     pause
     exit /b 1
 )
-echo {Colors.OKGREEN}[OK]{Colors.ENDC} Federation plugin enabled
+echo [OK] Federation plugin enabled
 echo.
 
 REM Step 2: Setup upstreams
-echo {Colors.OKBLUE}[STEP 2/3]{Colors.ENDC} Setting up federation upstreams...
+echo [STEP 2/3] Setting up federation upstreams...
 echo.
 
 """
@@ -114,7 +114,7 @@ echo.
         upstream_count += 1
         
         script += f"""REM Upstream: {other_node['name']} ({other_node['ip']}) - {other_node['location']}
-echo   Adding upstream: {other_node['name']} -&gt; {other_node['ip']}
+echo   Adding upstream: {other_node['name']} -^> {other_node['ip']}
 rabbitmqctl set_parameter federation-upstream {other_node['name']} ^
   "{{\\"uri\\":\\"amqp://{config['rabbitmq_user']}:{config['rabbitmq_pass']}@{other_node['ip']}:{config['rabbitmq_port']}/\\", ^
    \\"exchange\\":\\"{config['exchange_name']}\\", ^
@@ -122,33 +122,33 @@ rabbitmqctl set_parameter federation-upstream {other_node['name']} ^
    \\"max-hops\\":{config['federation']['max_hops']}, ^
    \\"prefetch-count\\":{config['federation']['prefetch_count']}}}"
 if %errorlevel% neq 0 (
-    echo {Colors.WARNING}[WARN]{Colors.ENDC} Failed to add upstream {other_node['name']}
+    echo [WARN] Failed to add upstream {other_node['name']}
 ) else (
-    echo {Colors.OKGREEN}   [OK]{Colors.ENDC} Upstream {other_node['name']} added
+    echo   [OK] Upstream {other_node['name']} added
 )
 echo.
 
 """
-    
-    script += f"""echo {Colors.OKGREEN}[OK]{Colors.ENDC} {upstream_count} upstream(s) configured
+
+    script += f"""echo [OK] {upstream_count} upstream(s) configured
 echo.
 
 REM Step 3: Setup federation exchange
-echo {Colors.OKBLUE}[STEP 3/3]{Colors.ENDC} Setting up federation exchange...
+echo [STEP 3/3] Setting up federation exchange...
 rabbitmqctl set_parameter federation-exchange {config['exchange_name']} ^
   "{{\\"upstream-set\\":\\"all\\"}}"
 if %errorlevel% neq 0 (
-    echo {Colors.FAIL}[ERROR] Failed to setup federation exchange{Colors.ENDC}
+    echo [ERROR] Failed to setup federation exchange
     pause
     exit /b 1
 )
-echo {Colors.OKGREEN}[OK]{Colors.ENDC} Federation exchange configured
+echo [OK] Federation exchange configured
 echo.
 
 REM Verification
-echo {Colors.OKCYAN}============================================================================{Colors.ENDC}
+echo ============================================================================
 echo  Setup Complete!
-echo {Colors.OKCYAN}============================================================================{Colors.ENDC}
+echo ============================================================================
 echo.
 echo Node Information:
 echo   - Name: {node['name']}
@@ -173,7 +173,7 @@ echo ----------------------
 rabbitmqctl list_parameters
 echo.
 
-echo {Colors.OKGREEN}✓ Federation setup complete for {node['name']}!{Colors.ENDC}
+echo Federation setup complete for {node['name']}!
 echo.
 pause
 """

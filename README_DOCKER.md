@@ -4,6 +4,14 @@ Aplikasi chatting realtime dengan sinkronisasi database SQLite menggunakan Rabbi
 
 ---
 
+## 🚀 Quick Start
+
+**Untuk multi-PC federation setup:** Lihat: **[QUICK_START.md](QUICK_START.md)**
+
+**Untuk single-PC testing (2 apps):** Lanjut baca di bawah!
+
+---
+
 ## 📋 Prerequisites
 
 - **Docker Desktop** terinstall dan running

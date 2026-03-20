@@ -1,3 +1,11 @@
+# ============================================================================
+# SINGLE-PC TESTING ONLY (2 apps on same machine)
+# ============================================================================
+#用途：在单台 PC 上测试 2 个 app（App A 和 App B）
+# Untuk multi-PC federation (10 PC), gunakan:
+#   output/<node_name>/docker-compose.yml
+# ============================================================================
+
 services:
   # RabbitMQ Broker
   rabbitmq:
