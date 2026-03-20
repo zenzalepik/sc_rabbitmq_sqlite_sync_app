@@ -1,0 +1,104 @@
+{
+  "_description": "RabbitMQ Federation Cluster Configuration",
+  "_version": "1.0.0",
+  "_instructions": "Edit IP addresses sesuai network Anda, lalu jalankan: python scripts/generate_federation.py",
+  
+  "cluster_name": "chat_federation",
+  "exchange_name": "chat_exchange",
+  "rabbitmq_user": "guest",
+  "rabbitmq_pass": "guest",
+  "rabbitmq_port": 5672,
+  "management_port": 15672,
+  "app_port": 8080,
+  
+  "federation": {
+    "ack_mode": "on-confirm",
+    "trust_user_id": false,
+    "exchange": "chat_exchange",
+    "max_hops": 1,
+    "prefetch_count": 100
+  },
+  
+  "nodes": [
+    {
+      "name": "pc1",
+      "hostname": "pc1.local",
+      "ip": "192.168.1.10",
+      "location": "Office - Room 1",
+      "enabled": true,
+      "username": "user_pc1"
+    },
+    {
+      "name": "pc2",
+      "hostname": "pc2.local",
+      "ip": "192.168.1.11",
+      "location": "Office - Room 2",
+      "enabled": true,
+      "username": "user_pc2"
+    },
+    {
+      "name": "pc3",
+      "hostname": "pc3.local",
+      "ip": "192.168.1.12",
+      "location": "Office - Room 3",
+      "enabled": true,
+      "username": "user_pc3"
+    },
+    {
+      "name": "pc4",
+      "hostname": "pc4.local",
+      "ip": "192.168.1.13",
+      "location": "Office - Room 4",
+      "enabled": true,
+      "username": "user_pc4"
+    },
+    {
+      "name": "pc5",
+      "hostname": "pc5.local",
+      "ip": "192.168.1.14",
+      "location": "Office - Room 5",
+      "enabled": true,
+      "username": "user_pc5"
+    },
+    {
+      "name": "pc6",
+      "hostname": "pc6.local",
+      "ip": "192.168.1.15",
+      "location": "Office - Room 6",
+      "enabled": true,
+      "username": "user_pc6"
+    },
+    {
+      "name": "pc7",
+      "hostname": "pc7.local",
+      "ip": "192.168.1.16",
+      "location": "Office - Room 7",
+      "enabled": true,
+      "username": "user_pc7"
+    },
+    {
+      "name": "pc8",
+      "hostname": "pc8.local",
+      "ip": "192.168.1.17",
+      "location": "Office - Room 8",
+      "enabled": true,
+      "username": "user_pc8"
+    },
+    {
+      "name": "pc9",
+      "hostname": "pc9.local",
+      "ip": "192.168.1.18",
+      "location": "Office - Room 9",
+      "enabled": true,
+      "username": "user_pc9"
+    },
+    {
+      "name": "pc10",
+      "hostname": "pc10.local",
+      "ip": "192.168.1.19",
+      "location": "Office - Room 10",
+      "enabled": true,
+      "username": "user_pc10"
+    }
+  ]
+}

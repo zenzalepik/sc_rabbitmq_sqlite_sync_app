@@ -1,0 +1,24 @@
+RabbitMQ Federation Configuration Summary
+==================================================
+
+Node Name: pc6
+Node IP: 192.168.1.15
+Hostname: pc6.local
+Location: Office - Room 6
+Generated: 2026-03-20 09:39:20
+
+Federation Configuration:
+  Cluster: chat_federation
+  Exchange: chat_exchange
+  Upstreams: 9
+
+Upstream Nodes:
+  - pc1: 192.168.1.10 (Office - Room 1)
+  - pc2: 192.168.1.11 (Office - Room 2)
+  - pc3: 192.168.1.12 (Office - Room 3)
+  - pc4: 192.168.1.13 (Office - Room 4)
+  - pc5: 192.168.1.14 (Office - Room 5)
+  - pc7: 192.168.1.16 (Office - Room 7)
+  - pc8: 192.168.1.17 (Office - Room 8)
+  - pc9: 192.168.1.18 (Office - Room 9)
+  - pc10: 192.168.1.19 (Office - Room 10)

@@ -1,0 +1,147 @@
+================================================================================
+DEPLOYMENT INSTRUCTIONS
+================================================================================
+
+Generated: 2026-03-20 09:39:48
+Total Nodes: 10
+
+STEP 1: Copy Folder to Each PC
+----------------------------------------
+Copy the entire 'deployment_package' folder to a USB drive or network share.
+
+STEP 2: For Each PC
+----------------------------------------
+
+--- PC1 (192.168.1.10) ---
+1. Copy folder 'pc1' to PC at: Office - Room 1
+2. IP Address should be: 192.168.1.10
+3. Open Command Prompt as Administrator
+4. Navigate to folder and run:
+   cd pc1
+   federation_setup.bat
+5. After federation setup completes, run:
+   start.bat
+6. Verify with:
+   verify_federation.bat
+7. Access RabbitMQ UI: http://192.168.1.10:15672
+
+--- PC2 (192.168.1.11) ---
+1. Copy folder 'pc2' to PC at: Office - Room 2
+2. IP Address should be: 192.168.1.11
+3. Open Command Prompt as Administrator
+4. Navigate to folder and run:
+   cd pc2
+   federation_setup.bat
+5. After federation setup completes, run:
+   start.bat
+6. Verify with:
+   verify_federation.bat
+7. Access RabbitMQ UI: http://192.168.1.11:15672
+
+--- PC3 (192.168.1.12) ---
+1. Copy folder 'pc3' to PC at: Office - Room 3
+2. IP Address should be: 192.168.1.12
+3. Open Command Prompt as Administrator
+4. Navigate to folder and run:
+   cd pc3
+   federation_setup.bat
+5. After federation setup completes, run:
+   start.bat
+6. Verify with:
+   verify_federation.bat
+7. Access RabbitMQ UI: http://192.168.1.12:15672
+
+--- PC4 (192.168.1.13) ---
+1. Copy folder 'pc4' to PC at: Office - Room 4
+2. IP Address should be: 192.168.1.13
+3. Open Command Prompt as Administrator
+4. Navigate to folder and run:
+   cd pc4
+   federation_setup.bat
+5. After federation setup completes, run:
+   start.bat
+6. Verify with:
+   verify_federation.bat
+7. Access RabbitMQ UI: http://192.168.1.13:15672
+
+--- PC5 (192.168.1.14) ---
+1. Copy folder 'pc5' to PC at: Office - Room 5
+2. IP Address should be: 192.168.1.14
+3. Open Command Prompt as Administrator
+4. Navigate to folder and run:
+   cd pc5
+   federation_setup.bat
+5. After federation setup completes, run:
+   start.bat
+6. Verify with:
+   verify_federation.bat
+7. Access RabbitMQ UI: http://192.168.1.14:15672
+
+--- PC6 (192.168.1.15) ---
+1. Copy folder 'pc6' to PC at: Office - Room 6
+2. IP Address should be: 192.168.1.15
+3. Open Command Prompt as Administrator
+4. Navigate to folder and run:
+   cd pc6
+   federation_setup.bat
+5. After federation setup completes, run:
+   start.bat
+6. Verify with:
+   verify_federation.bat
+7. Access RabbitMQ UI: http://192.168.1.15:15672
+
+--- PC7 (192.168.1.16) ---
+1. Copy folder 'pc7' to PC at: Office - Room 7
+2. IP Address should be: 192.168.1.16
+3. Open Command Prompt as Administrator
+4. Navigate to folder and run:
+   cd pc7
+   federation_setup.bat
+5. After federation setup completes, run:
+   start.bat
+6. Verify with:
+   verify_federation.bat
+7. Access RabbitMQ UI: http://192.168.1.16:15672
+
+--- PC8 (192.168.1.17) ---
+1. Copy folder 'pc8' to PC at: Office - Room 8
+2. IP Address should be: 192.168.1.17
+3. Open Command Prompt as Administrator
+4. Navigate to folder and run:
+   cd pc8
+   federation_setup.bat
+5. After federation setup completes, run:
+   start.bat
+6. Verify with:
+   verify_federation.bat
+7. Access RabbitMQ UI: http://192.168.1.17:15672
+
+--- PC9 (192.168.1.18) ---
+1. Copy folder 'pc9' to PC at: Office - Room 9
+2. IP Address should be: 192.168.1.18
+3. Open Command Prompt as Administrator
+4. Navigate to folder and run:
+   cd pc9
+   federation_setup.bat
+5. After federation setup completes, run:
+   start.bat
+6. Verify with:
+   verify_federation.bat
+7. Access RabbitMQ UI: http://192.168.1.18:15672
+
+--- PC10 (192.168.1.19) ---
+1. Copy folder 'pc10' to PC at: Office - Room 10
+2. IP Address should be: 192.168.1.19
+3. Open Command Prompt as Administrator
+4. Navigate to folder and run:
+   cd pc10
+   federation_setup.bat
+5. After federation setup completes, run:
+   start.bat
+6. Verify with:
+   verify_federation.bat
+7. Access RabbitMQ UI: http://192.168.1.19:15672
+
+================================================================================
+DEPLOYMENT COMPLETE
+================================================================================

@@ -1,0 +1,83 @@
+# ============================================================================
+#  Docker Compose for RabbitMQ Federation Chat App
+# ============================================================================
+#  Node: pc10
+#  IP: 192.168.1.19
+#  Hostname: pc10.local
+#  Location: Office - Room 10
+#  Generated: 2026-03-20 09:39:31
+# ============================================================================
+
+services:
+  # ============================================================================
+  #  RabbitMQ Broker with Federation
+  # ============================================================================
+  rabbitmq:
+    image: rabbitmq:3-management
+    container_name: rabbitmq_broker
+    hostname: pc10
+    networks:
+      - chat_network
+    ports:
+      - "5672:5672"      # AMQP port
+      - "15672:15672"   # Management UI
+    environment:
+      RABBITMQ_DEFAULT_USER: guest
+      RABBITMQ_DEFAULT_PASS: guest
+    volumes:
+      - ./rabbitmq_data:/var/lib/rabbitmq
+    command: >
+      sh -c "rabbitmq-plugins enable rabbitmq_federation &&
+             rabbitmq-server"
+    healthcheck:
+      test: ["CMD", "rabbitmq-diagnostics", "-q", "ping"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+    restart: unless-stopped
+
+  # ============================================================================
+  #  Chat Application
+  # ============================================================================
+  chat_app:
+    build:
+      context: ./app
+      dockerfile: ../Dockerfile
+    container_name: chat_app_pc10
+    hostname: app_pc10
+    networks:
+      - chat_network
+    volumes:
+      - ./app:/app
+      - ./chat.db:/app/chat.db
+    depends_on:
+      rabbitmq:
+        condition: service_healthy
+    environment:
+      - PYTHONUNBUFFERED=1
+      - RABBITMQ_HOST=192.168.1.19
+      - RABBITMQ_PORT=5672
+      - RABBITMQ_USER=guest
+      - RABBITMQ_PASS=guest
+      - NODE_NAME=pc10
+      - NODE_IP=192.168.1.19
+      - NODE_HOSTNAME=pc10.local
+      - EXCHANGE_NAME=chat_exchange
+      - CLUSTER_NAME=chat_federation
+    stdin_open: true
+    tty: true
+    command: >
+      sh -c "pip install -r requirements.txt &&
+             python sync_chatting_app.py"
+    restart: unless-stopped
+
+# ============================================================================
+#  Network Configuration
+# ============================================================================
+networks:
+  chat_network:
+    driver: bridge
+    ipam:
+      config:
+        - subnet: 192.168.1.0/24
+          gateway: 192.168.1.1
