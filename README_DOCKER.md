@@ -6,9 +6,22 @@ Aplikasi chatting realtime dengan sinkronisasi database SQLite menggunakan Rabbi
 
 ## 🚀 Quick Start
 
-**Untuk multi-PC federation setup:** Lihat: **[QUICK_START.md](QUICK_START.md)**
+**⚠️ BINGUNG PILIH YANG MANA? Baca ini dulu!**
 
-**Untuk single-PC testing (2 apps):** Lanjut baca di bawah!
+| Fitur | Single-PC Testing | Multi-PC Federation |
+|-------|------------------|---------------------|
+| **Untuk apa?** | Testing/Development di 1 laptop | Production di 10 PC fisik |
+| **Jumlah PC** | 1 PC | 10 PC berbeda |
+| **RabbitMQ** | Di Docker (otomatis) | Install manual di Windows |
+| **Set IP Address** | ❌ **TIDAK PERLU** | ✅ **WAJIB** |
+| **Setup Time** | 1 menit | 30 menit |
+| **File Config** | `docker-compose.yml` | `config/network_config.json` |
+| **Commands** | `start.bat` | Generate + Deploy + Setup |
+| **Use Case** | Belajar, testing, demo | Production kantor |
+
+**👉 Mau testing sendiri?** Lanjut baca README ini (Single-PC)
+
+**👉 Mau deploy 10 PC?** Lihat: **[QUICK_START.md](QUICK_START.md)** (Multi-PC)
 
 ---
 

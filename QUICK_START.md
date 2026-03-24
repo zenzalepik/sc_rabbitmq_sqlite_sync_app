@@ -6,6 +6,27 @@
 
 ---
 
+## ⚠️ BINGUNG PILIH YANG MANA?
+
+**Baca tabel ini dulu!**
+
+| Fitur | Single-PC Testing | Multi-PC Federation |
+|-------|------------------|---------------------|
+| **Untuk apa?** | Testing/Development di 1 laptop | Production di 10 PC fisik |
+| **Jumlah PC** | 1 PC | 10 PC berbeda |
+| **RabbitMQ** | Di Docker (otomatis) | Install manual di Windows (tiap PC) |
+| **Set IP Address** | ❌ **TIDAK PERLU** | ✅ **WAJIB EDIT DI JSON** |
+| **Setup Time** | 1 menit | 30 menit |
+| **File Config** | `docker-compose.yml` | `config/network_config.json` |
+| **Commands** | `start.bat` | Generate + Deploy + Setup |
+| **Use Case** | Belajar, testing, demo | Production kantor |
+
+**👉 Mau testing sendiri (2 apps)?** Lihat: **[README_DOCKER.md](README_DOCKER.md)**
+
+**👉 Mau deploy 10 PC?** Lanjut baca guide ini!
+
+---
+
 ## 📋 Prerequisites
 
 - ✅ Windows 10/11 Pro atau Enterprise
